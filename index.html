@@ -63,6 +63,23 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
         }
+
+        /* New: Triple Image Section */
+        .triple-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+            background-color: var(--light-gray);
+        }
+        .triple-images img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         
         /* Header */
         header {
@@ -81,15 +98,8 @@
             padding: 20px 0;
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--blue-primary);
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--red-accent);
+        .logo-img {
+            height: 40px;
         }
         
         .nav-links {
@@ -114,7 +124,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 61, 130, 0.9)), url('https://github.com/nicholaskock33-tech/autocool/raw/main/71EjGNUQSML._UF894%2C1000_QL80_.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 61, 130, 0.9)), url('https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/71EjGNUQSML._UF894%2C1000_QL80_.jpg') center/cover no-repeat;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -186,10 +196,11 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 10px;
         }
-        
         .about-image img {
-            width: 100%;
+            width: 50%;
             height: auto;
             display: block;
         }
@@ -216,12 +227,15 @@
         
         .product-image {
             height: 200px;
-            background: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--blue-primary);
-            font-size: 3rem;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .product-info {
@@ -271,13 +285,13 @@
             border-radius: 10px;
             overflow: hidden;
             height: 250px;
-            background: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--blue-primary);
-            font-size: 3rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         /* Contact Section */
@@ -458,6 +472,19 @@
             .about-content {
                 flex-direction: column;
             }
+            
+            .about-image {
+                flex-direction: column;
+            }
+            
+            .about-image img {
+                width: 100%;
+            }
+            
+            .triple-images {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -466,7 +493,9 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">AUTO <span>COOL</span></a>
+                <a href="#" class="logo">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocool.png" alt="Auto Cool Logo" class="logo-img">
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -488,6 +517,17 @@
         </div>
     </section>
 
+    <!-- Triple Images Section -->
+    <section>
+        <div class="container">
+            <div class="triple-images">
+                <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png" alt="Rooftop AC 1">
+                <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png" alt="Rooftop AC 2">
+                <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png" alt="Auto Cool Red">
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about">
         <div class="container">
@@ -501,7 +541,8 @@
                     <p>Our technicians have over 15+ years installing and servicing mobile cooling systems — from rooftop units to full refrigerated van setups.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/Gemini_Generated_Image_x6072sx6072sx607.png" alt="Our Team Installing AC System">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png" alt="Car Van">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/KarVan.png" alt="Kar Van">
                 </div>
             </div>
         </div>
@@ -516,7 +557,7 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/81aa34JYnCL._UF350%2C350_QL80_.jpg" alt="Rooftop Air Conditioner" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="Auto Fan in Air">
                     </div>
                     <div class="product-info">
                         <h3>Rooftop Air Conditioners</h3>
@@ -525,7 +566,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/71EjGNUQSML._UF894%2C1000_QL80_.jpg" alt="High-Efficiency Compressor" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png" alt="High-Efficiency Compressor">
                     </div>
                     <div class="product-info">
                         <h3>High-Efficiency Compressors</h3>
@@ -534,7 +575,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/Gemini_Generated_Image_x6072sx6072sx607.png" alt="Condensers & Evaporators" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg" alt="Condensers & Evaporators">
                     </div>
                     <div class="product-info">
                         <h3>Condensers & Evaporators</h3>
@@ -543,7 +584,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/81aa34JYnCL._UF350%2C350_QL80_.jpg" alt="Smart Control System" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="Smart Control System">
                     </div>
                     <div class="product-info">
                         <h3>Smart Control Systems</h3>
@@ -608,22 +649,22 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/81aa34JYnCL._UF350%2C350_QL80_.jpg" alt="RV AC Installation" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="RV AC Installation">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/71EjGNUQSML._UF894%2C1000_QL80_.jpg" alt="Bus AC System" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png" alt="Bus AC System">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/Gemini_Generated_Image_x6072sx6072sx607.png" alt="Truck Cooling Unit" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg" alt="Truck Cooling Unit">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/81aa34JYnCL._UF350%2C350_QL80_.jpg" alt="Refrigerated Van" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png" alt="Refrigerated Van">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/71EjGNUQSML._UF894%2C1000_QL80_.jpg" alt="Mobile Office AC" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png" alt="Mobile Office AC">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/Gemini_Generated_Image_x6072sx6072sx607.png" alt="Customer Satisfaction" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png" alt="Customer Satisfaction">
                 </div>
             </div>
         </div>
