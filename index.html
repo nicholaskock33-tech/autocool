@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Cool - Vehicle Air Conditioning Specialists</title>
+    <title>Mobile Auto Cool – Vehicle Air Conditioning Specialists</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --blue-primary: #0056b3;
-            --blue-dark: #003d82;
+            --yellow-start: #FFD700;
+            --blue-end: #0056b3;
             --red-accent: #e74c3c;
-            --red-dark: #c0392b;
             --white: #ffffff;
             --light-gray: #f8f9fa;
-            --gray: #6c757d;
             --dark-gray: #343a40;
+            --text-dark: #2d3748;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark-gray);
+            color: var(--text-dark);
             background-color: var(--white);
         }
-        
+
         h1, h2, h3, h4 {
-            color: var(--blue-dark);
+            color: var(--dark-gray);
             font-weight: 700;
             margin-bottom: 1rem;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .btn {
             display: inline-block;
             background: var(--red-accent);
@@ -57,74 +56,67 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-        
+
         .btn:hover {
-            background: var(--red-dark);
+            background: #c0392b;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
         }
 
-        /* New: Triple Image Section */
-        .triple-images {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 40px 0;
-            background-color: var(--light-gray);
-        }
-        .triple-images img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        
         /* Header */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: transparent;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background 0.3s ease;
         }
-        
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        
-        .logo-img {
-            height: 40px;
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--blue-end);
+            text-decoration: none;
         }
-        
+
+        .logo span {
+            color: var(--red-accent);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
         }
-        
+
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
-        
+
         .nav-links a {
-            color: var(--blue-dark);
+            color: var(--dark-gray);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
-        
+
         .nav-links a:hover {
             color: var(--red-accent);
         }
-        
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 61, 130, 0.9)), url('https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/71EjGNUQSML._UF894%2C1000_QL80_.jpg') center/cover no-repeat;
+            background: linear-gradient(90deg, var(--yellow-start) 0%, var(--blue-end) 100%);
             height: 100vh;
             display: flex;
             align-items: center;
@@ -132,43 +124,79 @@
             text-align: center;
             color: var(--white);
             margin-top: 80px;
+            padding: 0 20px;
+            position: relative;
         }
-        
+
         .hero-content {
             max-width: 800px;
-            padding: 0 20px;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
-            color: var(--white);
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
         }
-        
+
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
-        
+
+        .hero-contact {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        .hero-contact h3 {
+            color: var(--red-accent);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .contact-item i {
+            color: var(--red-accent);
+        }
+
         /* Section Styling */
         section {
             padding: 80px 0;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .section-header h2 {
             font-size: 2.5rem;
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
+            color: var(--blue-end);
         }
-        
+
         .section-header h2::after {
             content: '';
             position: absolute;
@@ -179,170 +207,134 @@
             height: 4px;
             background: var(--red-accent);
         }
-        
+
         /* About Section */
         .about-content {
             display: flex;
             align-items: center;
             gap: 40px;
         }
-        
+
         .about-text {
             flex: 1;
         }
-        
+
         .about-image {
             flex: 1;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            display: flex;
-            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
         }
+
         .about-image img {
-            width: 50%;
+            width: 100%;
             height: auto;
             display: block;
         }
-        
-        /* Products Section */
-        .products-grid {
+
+        /* Services Section */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
-        .product-card {
+
+        .service-card {
             background: var(--white);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .product-image {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-info h3 {
-            margin-bottom: 10px;
-            color: var(--blue-dark);
-        }
-        
-        /* Applications Section */
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            transition: transform 0.3s ease;
+            padding: 30px;
             text-align: center;
         }
-        
-        .application-item {
-            padding: 30px 20px;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+
+        .service-card:hover {
+            transform: translateY(-5px);
         }
-        
-        .application-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        
-        .application-icon {
-            font-size: 2.5rem;
-            color: var(--red-accent);
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--blue-end);
             margin-bottom: 20px;
         }
-        
+
+        .service-card h3 {
+            color: var(--blue-end);
+            margin-bottom: 15px;
+        }
+
         /* Gallery Section */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-        
+
         .gallery-item {
             border-radius: 10px;
             overflow: hidden;
             height: 250px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
-        
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
-        
+
         .contact-info {
-            background: var(--blue-primary);
+            background: var(--blue-end);
             color: var(--white);
             padding: 30px;
             border-radius: 10px;
         }
-        
+
         .contact-info h3 {
             color: var(--white);
             margin-bottom: 20px;
         }
-        
+
         .contact-detail {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
         .contact-detail i {
             margin-right: 15px;
             font-size: 1.2rem;
             color: var(--red-accent);
         }
-        
+
         .contact-form {
             background: var(--white);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--blue-dark);
+            color: var(--blue-end);
         }
-        
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -353,40 +345,40 @@
             font-size: 16px;
             transition: border-color 0.3s ease;
         }
-        
+
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: var(--blue-primary);
+            border-color: var(--blue-end);
             outline: none;
         }
-        
+
         .form-group textarea {
             height: 120px;
             resize: vertical;
         }
-        
+
         /* Footer */
         footer {
-            background: var(--blue-dark);
+            background: var(--dark-gray);
             color: var(--white);
             padding: 60px 0 30px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
             color: var(--white);
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .footer-column h3::after {
             content: '';
             position: absolute;
@@ -396,31 +388,31 @@
             height: 3px;
             background: var(--red-accent);
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer-links a:hover {
             color: var(--red-accent);
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .social-links a {
             display: inline-flex;
             align-items: center;
@@ -432,12 +424,12 @@
             border-radius: 50%;
             transition: all 0.3s ease;
         }
-        
+
         .social-links a:hover {
             background: var(--red-accent);
             transform: translateY(-3px);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 30px;
@@ -445,7 +437,32 @@
             color: #aaa;
             font-size: 14px;
         }
-        
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
@@ -473,17 +490,16 @@
                 flex-direction: column;
             }
             
-            .about-image {
-                flex-direction: column;
+            .hero-contact {
+                padding: 15px;
             }
             
-            .about-image img {
-                width: 100%;
+            .contact-info {
+                order: 2;
             }
             
-            .triple-images {
-                flex-direction: column;
-                align-items: center;
+            .contact-form {
+                order: 1;
             }
         }
     </style>
@@ -493,14 +509,11 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocool.png" alt="Auto Cool Logo" class="logo-img">
-                </a>
+                <a href="#" class="logo">MOBILE <span>AUTO COOL</span></a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -511,19 +524,32 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Vehicle Air Conditioning Specialists</h1>
-            <p>Stay Cool Wherever You Go.</p>
-            <a href="#contact" class="btn">Get a Quote</a>
-        </div>
-    </section>
-
-    <!-- Triple Images Section -->
-    <section>
-        <div class="container">
-            <div class="triple-images">
-                <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png" alt="Rooftop AC 1">
-                <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png" alt="Rooftop AC 2">
-                <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png" alt="Auto Cool Red">
+            <h1>MOBILE AUTO COOL</h1>
+            <p>Your Trusted Partner for Vehicle Air Conditioning Solutions</p>
+            <div class="hero-contact">
+                <h3>FOR QUOTATION AND APPOINTMENT</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-user"></i>
+                        <span>Contact: Charlton D. Abrahams</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Cel: 083 700 4980</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Tel: 021 703 8598</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: autocool@telkomsa.net</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>724 Govan Mbeki Rd, Wetton</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -536,135 +562,101 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>At Auto Cool, we're dedicated to delivering efficient, durable, and custom-tailored air conditioning and refrigeration systems for vehicles and mobile spaces across the Western Cape.</p>
+                    <p>At Mobile Auto Cool, we're dedicated to delivering efficient, durable, and custom-tailored air conditioning and refrigeration systems for vehicles and mobile spaces across the Western Cape.</p>
                     <p>With years of hands-on experience in vehicle climate control, our team understands the unique demands of trucks, buses, RVs, and commercial vans. We don't just install systems — we engineer comfort and reliability for life on the move.</p>
                     <p>Our technicians have over 15+ years installing and servicing mobile cooling systems — from rooftop units to full refrigerated van setups.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Get a Free Quote</a>
                 </div>
                 <div class="about-image">
                     <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png" alt="Car Van">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/KarVan.png" alt="Kar Van">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" style="background-color: var(--light-gray);">
+    <!-- Services Section -->
+    <section id="services" style="background-color: var(--light-gray);">
         <div class="container">
             <div class="section-header">
-                <h2>Products</h2>
+                <h2>Our Services</h2>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="Auto Fan in Air">
-                    </div>
-                    <div class="product-info">
-                        <h3>Rooftop Air Conditioners</h3>
-                        <p>Compact, quiet, and powerful — ideal for RVs, buses, and mobile offices.</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png" alt="High-Efficiency Compressor">
-                    </div>
-                    <div class="product-info">
-                        <h3>High-Efficiency Compressors</h3>
-                        <p>Built for durability under extreme conditions.</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg" alt="Condensers & Evaporators">
-                    </div>
-                    <div class="product-info">
-                        <h3>Condensers & Evaporators</h3>
-                        <p>Optimized for maximum heat exchange and minimal energy use.</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="Smart Control System">
-                    </div>
-                    <div class="product-info">
-                        <h3>Smart Control Systems</h3>
-                        <p>Remote monitoring, programmable schedules, and fault diagnostics.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Applications Section -->
-    <section id="applications">
-        <div class="container">
-            <div class="section-header">
-                <h2>Applications</h2>
-            </div>
-            <div class="applications-grid">
-                <div class="application-item">
-                    <div class="application-icon">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-campground"></i>
                     </div>
-                    <h3>RVs & Campers</h3>
-                    <p>Escape the heat while enjoying the outdoors.</p>
+                    <h3>RV & Camper AC</h3>
+                    <p>Stay cool while exploring the outdoors with our compact, quiet, and powerful rooftop systems.</p>
                 </div>
-                <div class="application-item">
-                    <div class="application-icon">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-bus"></i>
                     </div>
-                    <h3>Buses & Coaches</h3>
-                    <p>Comfort for passengers, no matter the route.</p>
+                    <h3>Bus & Coach Cooling</h3>
+                    <p>Comfort for every passenger, no matter the route or weather conditions.</p>
                 </div>
-                <div class="application-item">
-                    <div class="application-icon">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-truck"></i>
                     </div>
-                    <h3>Trucks & Haulers</h3>
-                    <p>Keep drivers alert and cargo protected.</p>
+                    <h3>Truck & Hauler Systems</h3>
+                    <p>Keep drivers alert and cargo protected with high-efficiency, rugged cooling solutions.</p>
                 </div>
-                <div class="application-item">
-                    <div class="application-icon">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-utensils"></i>
                     </div>
                     <h3>Refrigerated Vans</h3>
-                    <p>Maintain cold chain integrity for food, medicine, and more.</p>
+                    <p>Maintain cold chain integrity for food, medicine, and sensitive goods.</p>
                 </div>
-                <div class="application-item">
-                    <div class="application-icon">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>Mobile Offices</h3>
-                    <p>Professional environments that stay cool under pressure.</p>
+                    <h3>Mobile Office Climate Control</h3>
+                    <p>Professional environments that stay cool under pressure — perfect for field teams.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Repairs & Maintenance</h3>
+                    <p>Expert diagnostics, repairs, and preventative maintenance to keep your system running smoothly.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" style="background-color: var(--light-gray);">
+    <section id="gallery">
         <div class="container">
             <div class="section-header">
-                <h2>Gallery</h2>
+                <h2>Our Work</h2>
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="RV AC Installation">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="Rooftop AC Installation">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png" alt="Bus AC System">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png" alt="High-Efficiency Compressor">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg" alt="Truck Cooling Unit">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg" alt="Condenser Unit">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png" alt="Refrigerated Van">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png" alt="Customer Vehicle">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png" alt="Mobile Office AC">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png" alt="Installed System">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png" alt="Customer Satisfaction">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/KarVan.png" alt="Commercial Van">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png" alt="Auto Cool Red">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png" alt="Car Van">
                 </div>
             </div>
         </div>
@@ -738,7 +730,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Auto Cool</h3>
+                    <h3>Mobile Auto Cool</h3>
                     <p>724 Govan Mbeki Rd, Wetton, Cape Town, 7780</p>
                     <p>083 700 4980 | autocool@telkomsa.net</p>
                 </div>
@@ -747,8 +739,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#applications">Applications</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -763,10 +754,15 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2025 Auto Cool – Keeping You Cool on the Move.</p>
+                <p>© 2025 Mobile Auto Cool – Keeping You Cool on the Move.</p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27837004980" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // Smooth scrolling for navigation links
@@ -790,13 +786,15 @@
             this.reset();
         });
 
-        // Sticky header
+        // Sticky header with background change
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.95)';
                 header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
             } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                header.style.background = 'transparent';
+                header.style.boxShadow = 'none';
             }
         });
     </script>
