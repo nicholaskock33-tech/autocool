@@ -128,6 +128,49 @@
             color: var(--red-accent);
         }
 
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            padding: 5px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1001;
+            min-width: 200px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background: #f8f9fa;
+            color: var(--red-accent);
+            padding-left: 25px;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(90deg, var(--yellow-start) 0%, var(--blue-end) 100%);
@@ -576,16 +619,15 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column;
                 padding: 15px 0;
             }
             
             .nav-links {
-                margin-top: 15px;
+                display: none;
             }
             
-            .nav-links li {
-                margin: 0 10px;
+            .mobile-menu-btn {
+                display: block;
             }
             
             .hero h1 {
@@ -642,6 +684,9 @@
                     <img src="https://github.com/nicholaskock33-tech/autocool/raw/main/logo.PNG" alt="Mobile Auto Cool Logo">
                     MOBILE <span>AUTO COOL</span>
                 </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -651,6 +696,14 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#videos">Videos</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </header>
 
@@ -935,7 +988,32 @@
                         behavior: 'smooth'
                     });
                 }
+                // Close mobile menu after clicking
+                if (window.innerWidth <= 768) {
+                    document.getElementById('mobileMenu').style.display = 'none';
+                }
             });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            if (window.innerWidth <= 768) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            }
         });
 
         // Sticky header with background change
