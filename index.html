@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -856,32 +857,32 @@
             </div>
             <div class="video-gallery">
                 <div class="video-item">
-                    <video controls muted>
+                    <video controls muted preload="metadata">
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0037.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted>
+                    <video controls muted preload="metadata">
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0036.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted>
+                    <video controls muted preload="metadata">
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0034.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted>
+                    <video controls muted preload="metadata">
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0035.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted>
-                        <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0033.mp4" type="video/mp4" controls muted >
+                    <video controls muted preload="metadata">
+                        <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0033.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -972,7 +973,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27837004980" target="_blank" class="whatsapp-btn">
+    <a href="https://wa.me/27837004980" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1028,6 +1029,106 @@
             }
         });
     </script>
+
+    <!-- FORCE: Permanently mute ALL videos and prevent unmuting -->
+    <script>
+        (function enforcePermanentMute() {
+            // Apply muted state to a given video element and protect it
+            function protectVideo(v) {
+                try {
+                    // Force muted and zero volume
+                    v.muted = true;
+                    v.volume = 0;
+                    // Mark it so we don't repeatedly add listeners
+                    if (!v.dataset.forcedMuted) {
+                        v.dataset.forcedMuted = 'true';
+
+                        // If the user (or browser) changes volume/muted, immediately revert it
+                        v.addEventListener('volumechange', function (e) {
+                            if (!v.muted || v.volume > 0) {
+                                // Re-apply forced mute/zero volume
+                                v.muted = true;
+                                // Some browsers ignore setting volume due to cross-origin/media policies,
+                                // but setting muted is allowed and sufficient in most cases.
+                                try { v.volume = 0; } catch (err) {}
+                            }
+                        }, { passive: true });
+
+                        // On play ensure it's muted (covers autoplay / programmatic play)
+                        v.addEventListener('play', function () {
+                            if (!v.muted) v.muted = true;
+                            try { v.volume = 0; } catch (err) {}
+                        }, { passive: true });
+
+                        // Periodically re-assert (defense in depth)
+                        const interval = setInterval(function() {
+                            if (!document.body.contains(v)) {
+                                clearInterval(interval);
+                                return;
+                            }
+                            if (!v.muted || v.volume > 0) {
+                                v.muted = true;
+                                try { v.volume = 0; } catch (err) {}
+                            }
+                        }, 700);
+
+                        // Prevent programmatic attempts to unmute via setAttribute by observing attribute changes
+                        const mo = new MutationObserver(function(mutations) {
+                            mutations.forEach(m => {
+                                if (m.attributeName === 'muted' || m.attributeName === 'src' || m.attributeName === 'controls') {
+                                    if (!v.muted) {
+                                        v.muted = true;
+                                        try { v.volume = 0; } catch (err) {}
+                                    }
+                                }
+                            });
+                        });
+                        mo.observe(v, { attributes: true, attributeFilter: ['muted', 'src', 'controls'] });
+                    }
+                } catch (err) {
+                    // Fail silently — do not break page if setting fails in some environment
+                    console.warn('Could not enforce mute on a video element.', err);
+                }
+            }
+
+            // Protect all existing videos
+            document.querySelectorAll('video').forEach(protectVideo);
+
+            // Watch for dynamically added videos and protect them as well
+            const bodyObserver = new MutationObserver(function(mutations) {
+                for (const m of mutations) {
+                    if (m.type === 'childList') {
+                        m.addedNodes.forEach(node => {
+                            if (!node) return;
+                            if (node.tagName === 'VIDEO') {
+                                protectVideo(node);
+                            } else if (node.querySelectorAll) {
+                                const vids = node.querySelectorAll('video');
+                                vids.forEach(protectVideo);
+                            }
+                        });
+                    }
+                }
+            });
+
+            bodyObserver.observe(document.documentElement || document.body, { childList: true, subtree: true });
+
+            // Extra: prevent keyboard shortcuts from unmuting common players embedded with keyboard 'm' (best-effort).
+            // Note: this will not interfere with normal typing, only when a video has focus.
+            document.addEventListener('keydown', function(e) {
+                const active = document.activeElement;
+                if (active && active.tagName === 'VIDEO') {
+                    // If user tries 'm' to toggle, re-enforce mute quickly
+                    setTimeout(function() {
+                        if (!active.muted || active.volume > 0) {
+                            active.muted = true;
+                            try { active.volume = 0; } catch (err) {}
+                        }
+                    }, 10);
+                }
+            }, true);
+        })();
+    </script>
 </body>
 </html>
-
+```
