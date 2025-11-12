@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Auto Cool – Vehicle Air Conditioning Specialists</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css  ">
     <style>
         :root {
             --yellow-start: #FFD700;
@@ -616,6 +616,30 @@
             transform: scale(1.1);
         }
 
+        /* Music Control Button */
+        .music-control {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            z-index: 998;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: rgba(0,0,0,0.9);
+            transform: scale(1.1);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
@@ -676,6 +700,17 @@
     </style>
 </head>
 <body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/Podcast%20Upbeat%20Corporate%20by%20Infraction%20(No%20Copyright%20music)%20_%20Over%20The%20Mountains%20%5B9z17MdPtBo8%5D.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-volume-up" id="musicIcon"></i>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -754,7 +789,7 @@
                     <a href="#contact" class="btn" style="margin-top: 20px;">Get a Free Quote</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png" alt="Car Van">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png  " alt="Car Van">
                 </div>
             </div>
         </div>
@@ -821,28 +856,28 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png" alt="Rooftop AC Installation">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autoFaninAir.png  " alt="Rooftop AC Installation">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png" alt="High-Efficiency Compressor">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/Screenshot%202025-10-17%20012702.png  " alt="High-Efficiency Compressor">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg" alt="Condenser Unit">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/41trquaOPzL._SS64_.jpg  " alt="Condenser Unit">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png" alt="Customer Vehicle">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi1.png  " alt="Customer Vehicle">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png" alt="Installed System">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/rooi.png  " alt="Installed System">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/KarVan.png" alt="Commercial Van">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/KarVan.png  " alt="Commercial Van">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png" alt="Auto Cool Red">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/autocoolred.png  " alt="Auto Cool Red">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png" alt="Car Van">
+                    <img src="https://raw.githubusercontent.com/nicholaskock33-tech/autocool/main/carVan.png  " alt="Car Van">
                 </div>
             </div>
         </div>
@@ -856,31 +891,31 @@
             </div>
             <div class="video-gallery">
                 <div class="video-item">
-                    <video controls muted preload="metadata">
+                    <video controls>
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0037.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted preload="metadata">
+                    <video controls>
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0036.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted preload="metadata">
+                    <video controls>
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0034.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted preload="metadata">
+                    <video controls>
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0035.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <video controls muted preload="metadata">
+                    <video controls>
                         <source src="https://github.com/nicholaskock33-tech/autocool/raw/main/VID-20251024-WA0033.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -913,7 +948,7 @@
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-clock"></i>
-                        <span>Mon–Fri, 8 am to 5 pm | Saturdays (Summer only): 8 am to 2 pm | Closed Sundays</span>
+                        <span>Mon–Fri, 8 am to 5 pm (Closed on weekends)</span>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-phone"></i>
@@ -972,11 +1007,48 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27837004980" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+    <a href="https://wa.me/27837004980  " target="_blank" class="whatsapp-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
+        // Background music control
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicControl = document.getElementById('musicControl');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+
+        // Try to play music on page load (browsers require user interaction for autoplay)
+        function initMusic() {
+            backgroundMusic.volume = 0.3; // Set volume to 30%
+            backgroundMusic.play().then(() => {
+                isPlaying = true;
+                musicIcon.classList.remove('fa-volume-mute');
+                musicIcon.classList.add('fa-volume-up');
+            }).catch(error => {
+                console.log('Autoplay was prevented. User interaction required.');
+                // Music will play when user clicks the control button
+            });
+        }
+
+        // Initialize music on page load
+        window.addEventListener('load', initMusic);
+
+        // Music control toggle
+        musicControl.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicIcon.classList.remove('fa-volume-up');
+                musicIcon.classList.add('fa-volume-mute');
+                isPlaying = false;
+            } else {
+                backgroundMusic.play();
+                musicIcon.classList.remove('fa-volume-mute');
+                musicIcon.classList.add('fa-volume-up');
+                isPlaying = true;
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1027,106 +1099,6 @@
                 header.style.boxShadow = 'none';
             }
         });
-    </script>
-
-    <!-- FORCE: Permanently mute ALL videos and prevent unmuting -->
-    <script>
-        (function enforcePermanentMute() {
-            // Apply muted state to a given video element and protect it
-            function protectVideo(v) {
-                try {
-                    // Force muted and zero volume
-                    v.muted = true;
-                    v.volume = 0;
-                    // Mark it so we don't repeatedly add listeners
-                    if (!v.dataset.forcedMuted) {
-                        v.dataset.forcedMuted = 'true';
-
-                        // If the user (or browser) changes volume/muted, immediately revert it
-                        v.addEventListener('volumechange', function (e) {
-                            if (!v.muted || v.volume > 0) {
-                                // Re-apply forced mute/zero volume
-                                v.muted = true;
-                                // Some browsers ignore setting volume due to cross-origin/media policies,
-                                // but setting muted is allowed and sufficient in most cases.
-                                try { v.volume = 0; } catch (err) {}
-                            }
-                        }, { passive: true });
-
-                        // On play ensure it's muted (covers autoplay / programmatic play)
-                        v.addEventListener('play', function () {
-                            if (!v.muted) v.muted = true;
-                            try { v.volume = 0; } catch (err) {}
-                        }, { passive: true });
-
-                        // Periodically re-assert (defense in depth)
-                        const interval = setInterval(function() {
-                            if (!document.body.contains(v)) {
-                                clearInterval(interval);
-                                return;
-                            }
-                            if (!v.muted || v.volume > 0) {
-                                v.muted = true;
-                                try { v.volume = 0; } catch (err) {}
-                            }
-                        }, 700);
-
-                        // Prevent programmatic attempts to unmute via setAttribute by observing attribute changes
-                        const mo = new MutationObserver(function(mutations) {
-                            mutations.forEach(m => {
-                                if (m.attributeName === 'muted' || m.attributeName === 'src' || m.attributeName === 'controls') {
-                                    if (!v.muted) {
-                                        v.muted = true;
-                                        try { v.volume = 0; } catch (err) {}
-                                    }
-                                }
-                            });
-                        });
-                        mo.observe(v, { attributes: true, attributeFilter: ['muted', 'src', 'controls'] });
-                    }
-                } catch (err) {
-                    // Fail silently — do not break page if setting fails in some environment
-                    console.warn('Could not enforce mute on a video element.', err);
-                }
-            }
-
-            // Protect all existing videos
-            document.querySelectorAll('video').forEach(protectVideo);
-
-            // Watch for dynamically added videos and protect them as well
-            const bodyObserver = new MutationObserver(function(mutations) {
-                for (const m of mutations) {
-                    if (m.type === 'childList') {
-                        m.addedNodes.forEach(node => {
-                            if (!node) return;
-                            if (node.tagName === 'VIDEO') {
-                                protectVideo(node);
-                            } else if (node.querySelectorAll) {
-                                const vids = node.querySelectorAll('video');
-                                vids.forEach(protectVideo);
-                            }
-                        });
-                    }
-                }
-            });
-
-            bodyObserver.observe(document.documentElement || document.body, { childList: true, subtree: true });
-
-            // Extra: prevent keyboard shortcuts from unmuting common players embedded with keyboard 'm' (best-effort).
-            // Note: this will not interfere with normal typing, only when a video has focus.
-            document.addEventListener('keydown', function(e) {
-                const active = document.activeElement;
-                if (active && active.tagName === 'VIDEO') {
-                    // If user tries 'm' to toggle, re-enforce mute quickly
-                    setTimeout(function() {
-                        if (!active.muted || active.volume > 0) {
-                            active.muted = true;
-                            try { active.volume = 0; } catch (err) {}
-                        }
-                    }, 10);
-                }
-            }, true);
-        })();
     </script>
 </body>
 </html>
